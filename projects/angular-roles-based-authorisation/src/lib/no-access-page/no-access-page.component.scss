@@ -1,0 +1,27 @@
+.no-access-wrapper {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+  .img {
+    width: 100px;
+    height: 100px;
+    background: url(../assets/images/warning.svg);
+  }
+
+  .no-access-heading {
+    margin: 0;
+    font-size: 25px;
+    color: #05164d;
+  }
+
+  .no-access-text {
+    margin: 0;
+    font-size: 18px;
+    color: #05164d;
+  } 
+}

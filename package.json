@@ -5,6 +5,7 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
+    "build-library": "ng build angular-roles-based-authorisation",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },

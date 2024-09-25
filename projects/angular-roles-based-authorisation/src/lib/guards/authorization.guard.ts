@@ -4,7 +4,7 @@ import { ActivatedRouteSnapshot, Router, UrlTree } from '@angular/router';
 import { Observable, of } from 'rxjs';
 
 import { AngularRolesBasedAuthorisationService } from "../angular-roles-based-authorisation.service";
-import { NO_ACCESS_ROUTE, ROLES } from "../constants";
+import { ROUTE_DATA_ROLES_PARAM, ROUTE_NO_ACCESS_PAGE } from "../constants";
  
 @Injectable({
   providedIn: 'root',
@@ -22,12 +22,14 @@ export class AuthorizationGuard {
   }
  
   isAuthorized(route: ActivatedRouteSnapshot): Observable<boolean> {
-    const requiredRoles = route.data[ROLES] as string[];
+    let requiredRoles = route.data[ROUTE_DATA_ROLES_PARAM];
 
-    this.rolesBasedAuthorisationService.setRequiredRoles(requiredRoles);
+    if (!Array.isArray(requiredRoles)) {
+      requiredRoles = [requiredRoles];
+    }
 
-    if (!this.rolesBasedAuthorisationService.hasAccess()) {
-      this.router.navigate([NO_ACCESS_ROUTE]);
+    if (!this.rolesBasedAuthorisationService.hasAccess(requiredRoles)) {
+      this.router.navigate([ROUTE_NO_ACCESS_PAGE]);
       return of(false);
     }
 

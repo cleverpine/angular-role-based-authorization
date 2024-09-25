@@ -5,7 +5,6 @@ import { Injectable } from '@angular/core';
 })
 export class AngularRolesBasedAuthorisationService {
   private userRoles: string[] = [];
-  private requiredRoles: string[] = [];
 
   /**
    * Method to set user roles after login
@@ -16,24 +15,15 @@ export class AngularRolesBasedAuthorisationService {
     this.userRoles = roles;
   }
 
-   /**
-   * Method to set required user roles to access a page
-   * @param roles user roles
-   * @returns void
-   */ 
-  setRequiredRoles(roles: string[]): void {
-    this.requiredRoles = roles;
-  }
-
   /**
    * Method to check if the user has any of the required roles
    * @returns boolean
    */ 
-  hasAccess(): boolean {
-    if (this.requiredRoles.length === 0 || this.userRoles.length === 0) {
-      return false;
+  hasAccess(requiredRoles: string[]): boolean {
+    if (requiredRoles.length === 0 || this.userRoles.length === 0) {
+      return true;
     }
 
-    return this.requiredRoles.some(role => this.userRoles.includes(role));
+    return requiredRoles.some(role => this.userRoles.includes(role));
   }
 }

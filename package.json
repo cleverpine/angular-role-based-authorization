@@ -6,8 +6,7 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test",
-    "serve:ssr:angular-role-based-authorization": "node dist/angular-role-based-authorization/server/server.mjs"
+    "test": "ng test"
   },
   "private": true,
   "dependencies": {

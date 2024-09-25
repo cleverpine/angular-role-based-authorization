@@ -3,4 +3,6 @@
  */
 
 export * from './lib/angular-roles-based-authorisation.service';
-export * from './lib/angular-roles-based-authorisation.component';
+export * from './lib/guards/authorization.guard';
+export * from './lib/no-access-page/no-access-page.component';
+

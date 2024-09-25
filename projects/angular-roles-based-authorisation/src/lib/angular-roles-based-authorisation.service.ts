@@ -20,7 +20,7 @@ export class AngularRolesBasedAuthorisationService {
    * @returns boolean
    */ 
   hasAccess(requiredRoles: string[]): boolean {
-    if (requiredRoles.length === 0 || this.userRoles.length === 0) {
+    if (requiredRoles.length === 0 && this.userRoles.length === 0) {
       return true;
     }
 

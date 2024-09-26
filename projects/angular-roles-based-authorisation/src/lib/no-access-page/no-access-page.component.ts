@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from "@angular/router";
 
+import { ROUTE_DATA_CONTACT_PERSON } from "../constants";
+
 @Component({
   selector: 'no-access-page',
   standalone: true,
@@ -14,8 +16,7 @@ export class NoAccessPageComponent implements OnInit {
 
   ngOnInit(): void {
     this.activatedRoute.data.subscribe((data) => {
-      const constactPerson = data['contactPerson'] as string[];
-      this.contactPerson = constactPerson;
+      this.contactPerson = data[ROUTE_DATA_CONTACT_PERSON];
     });
   }
 }

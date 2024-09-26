@@ -9,7 +9,7 @@ import { ROUTE_DATA_ROLES_PARAM, ROUTE_NO_ACCESS_PAGE } from "../constants";
 @Injectable({
   providedIn: 'root',
 })
-export class AuthorizationGuard {
+export class AuthorisationGuard {
   constructor(
     private router: Router,
     private rolesBasedAuthorisationService: AngularRolesBasedAuthorisationService

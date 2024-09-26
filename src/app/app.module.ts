@@ -11,6 +11,7 @@ export function initializeApp(
   angularRolesBasedAuthorisationService: AngularRolesBasedAuthorisationService
 ) {
   return () => {
+    // await firstValueFrom(authService.login());
     angularRolesBasedAuthorisationService.setUserRoles(['user']);
   };
 }
